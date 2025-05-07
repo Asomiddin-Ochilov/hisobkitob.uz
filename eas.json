@@ -1,0 +1,11 @@
+{
+    "cli": {
+      "appVersionSource": "local"
+    },
+    "build": {
+      "android": {
+        "workflow": "managed"
+      }
+    }
+  }
+  
