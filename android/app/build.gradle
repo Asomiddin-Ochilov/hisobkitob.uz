@@ -2,16 +2,16 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace "com.yourapp"
+    namespace 'com.asomiddin.webviewer'
 
     compileSdkVersion 35
 
     defaultConfig {
-        applicationId "com.yourapp"
+        applicationId 'com.asomiddin.webviewer'
         minSdkVersion 24
         targetSdkVersion 35
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
 
     ndkVersion "27.1.12297006"
@@ -19,6 +19,9 @@ android {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'expo.modules:expo-modules-core:1.0.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    // Expo modules autolink orqali qo‘shiladi. Qo‘lda yozmaymiz.
+    // implementation 'expo.modules:expo-modules-core:1.0.0' -- BU YERNI O‘CHIRAMIZ
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.21"
 }

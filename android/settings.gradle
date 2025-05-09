@@ -6,7 +6,7 @@ pluginManagement {
     }.standardOutput.asText.get().trim()
   ).getParentFile().absolutePath
   includeBuild(reactNativeGradlePlugin)
-  
+
   def expoPluginsPath = new File(
     providers.exec {
       workingDir(rootDir)
@@ -22,6 +22,12 @@ plugins {
   id("expo-autolinking-settings")
 }
 
+rootProject.name = 'webviewer'
+
+// App module
+include ':app'
+
+// Autolinking setup (Expo modules)
 extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
   if (System.getenv('EXPO_USE_COMMUNITY_AUTOLINKING') == '1') {
     ex.autolinkLibrariesFromCommand()
@@ -30,10 +36,4 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
   }
 }
 expoAutolinking.useExpoModules()
-
-rootProject.name = 'webviewer'
-
 expoAutolinking.useExpoVersionCatalog()
-
-include ':app'
-includeBuild(expoAutolinking.reactNativeGradlePlugin)
